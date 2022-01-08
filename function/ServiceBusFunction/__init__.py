@@ -1,5 +1,4 @@
 import logging
-from app.routes import attendees
 import azure.functions as func
 import psycopg2
 import os
@@ -22,7 +21,7 @@ def main(msg: func.ServiceBusMessage):
     cur = conn.cursor()
     try:
         # TODO: Get notification message and subject from database using the notification_id
-        cur.execute('select message, subject from notification where id=%s;', notification_id)
+        cur.execute('select message, subject from notification where id = %s;', (notification_id,))
         noti = cur.fetchone()
         logging.info('Get notification message and subject %s', noti)
         # TODO: Get attendees email and name        
@@ -43,7 +42,8 @@ def main(msg: func.ServiceBusMessage):
             logging.info("Successfully sent %s", email)
 
         # TODO: Update the notification table by setting the completed date and updating the status with the total number of attendees notified
-        status = 'The total number of attendees notified :' + attendees.count
+        logging.info('The total number of attendees: %s', (cur.rowcount,))
+        status = 'The total number of attendees notified :{}'.format(cur.rowcount)
         cur.execute('UPDATE NOTIFICATION SET STATUS = %s, COMPLETED_DATE = %s WHERE ID = %s', (status, datetime.utcnow(), notification_id,))
         conn.commit()
         logging.info("update successful")
