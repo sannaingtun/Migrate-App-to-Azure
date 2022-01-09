@@ -83,5 +83,7 @@ Complete a month cost analysis of each Azure resource to give an estimate total 
 
 This is a placeholder section where you can provide an explanation and reasoning for your architecture selection for both the Azure Web App and Azure Function.
 
-I created App Service with Linux OS and Free Tier F1.
-I created Azure Functions with Consumption Tier because the first 400,000 GB/s of execution and 1,000,000 executions are free.
+| Compare         | Service Tier            | Scalability | Cost | Reason                                                                                                                                                                                               |
+| --------------- | ----------------------- | ----------- | ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Azure Web App   | Linux OS (Free Tier F1) | No          | Free | I think F1 is good enough for this project but in real life project I have to consider availability, scalability, performance and so on                                                              |
+| Azure Functions | Continuous Plan         | Auto        | Free | It is free for 400,000 GB-s, 1 million executions per month. For cost effectiveness, I may be able to use App service plan for both web app and azure functions but performance should be considered |
