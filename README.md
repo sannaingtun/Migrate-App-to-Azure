@@ -81,7 +81,8 @@ Complete a month cost analysis of each Azure resource to give an estimate total 
 
 ## Architecture Explanation
 
-The following advantages are the reasons I chosed Azure web app and Azure Functions
+The following advantages are the reasons I chosed Azure web app and Azure Functions.
+
 Advantages of using Azure web app
 
 - Elimination of Infrastructure management
