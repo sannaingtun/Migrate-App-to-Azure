@@ -81,9 +81,20 @@ Complete a month cost analysis of each Azure resource to give an estimate total 
 
 ## Architecture Explanation
 
-This is a placeholder section where you can provide an explanation and reasoning for your architecture selection for both the Azure Web App and Azure Function.
+The following advantages are the reasons I chosed Azure web app and Azure Functions
+Advantages of using Azure web app
 
-| Compare         | Service Tier            | Scalability | Cost | Reason                                                                                                                                                                                               |
-| --------------- | ----------------------- | ----------- | ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Azure Web App   | Linux OS (Free Tier F1) | No          | Free | I think F1 is good enough for this project but in real life project I have to consider availability, scalability, performance and so on                                                              |
-| Azure Functions | Continuous Plan         | Auto        | Free | It is free for 400,000 GB-s, 1 million executions per month. For cost effectiveness, I may be able to use App service plan for both web app and azure functions but performance should be considered |
+- Elimination of Infrastructure management
+- Cost management is easier and predictable
+- Auto and manual scale is available for peak season
+- Eliminate unnecessary cost with auto scalibility
+- Web Jobs features is available
+
+Advantages of using Azure Functions
+
+- Cost Effective and cheap because 400,000 GB/s of execution and 1,000,000 executions are free
+- Elimination of Infrastructure management
+- Auto scailability for peak season traffic
+- Easy and quick deployment
+- Adaptable and applicable with Microservices architecture
+- simple and easy for API development
